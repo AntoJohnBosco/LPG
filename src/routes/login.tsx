@@ -55,9 +55,15 @@ function LoginPage() {
       await authService.sendOtp(countryCode, digits);
       toast.success(`Code sent to ${countryCode} ${digits}`);
       navigate({ to: "/verify" });
-    } catch {
-      toast.error("Could not send the code. Try again.");
-    } finally {
+    }catch (error) {
+  console.error("OTP request failed:", error);
+
+  toast.error(
+    error instanceof Error
+      ? error.message
+      : "Could not send the code. Try again."
+  );
+} finally {
       setSending(false);
     }
   }
