@@ -5,7 +5,7 @@ import { ArrowLeft, CheckCircle2, Loader2, MessageSquareLock, TriangleAlert } fr
 import { AuthScreen } from "@/components/auth/auth-screen";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/hooks/use-auth";
-import { authService, DEMO_OTP, type PendingVerification } from "@/services/auth-service";
+import { authService, type PendingVerification } from "@/services/auth-service";
 
 export const Route = createFileRoute("/verify")({
   head: () => ({
@@ -207,7 +207,7 @@ function VerifyPage() {
         </div>
 
         <p className="mt-2 text-xs text-muted-foreground">
-          Demo mode: use code <span className="font-semibold text-foreground">{DEMO_OTP}</span>.
+          The code expires after 5 minutes. You can request a new code when the resend timer ends.
         </p>
       </div>
 
